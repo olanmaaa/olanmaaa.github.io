@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Olanma Okezie-Okafor</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #0D0D0D;
+      --offwhite: #F0F4FF;
+      --altbg:   #E8F0FE;
+      --blue:    #2563EB;
+      --amber:   #F59E0B;
+      --muted:   #6B7280;
+      --text:    #1A1A2E;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      background-color: var(--offwhite);
+      color: var(--text);
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--black);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2.5rem;
+      height: 56px;
+    }
+
+    .logo a {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--offwhite);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+
+    .navmenu {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .navmenu a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--offwhite);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    .navmenu a:hover { color: var(--amber); }
+
+    /* ── HERO ── */
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      padding: 5rem 2.5rem 4rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .hero-img {
+      flex-shrink: 0;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--blue);
+      background: var(--altbg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--blue);
+      letter-spacing: -0.02em;
+    }
+
+    .hero-text h1 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-text h1 span {
+      color: var(--blue);
+    }
+
+    .hero-text .tagline {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-text p {
+      font-size: 1rem;
+      color: var(--text);
+      max-width: 520px;
+      margin-bottom: 1.75rem;
+    }
+
+    /* greeting widget */
+    .greeting-bar {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .greeting-bar input {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      padding: 0.45rem 0.85rem;
+      border: 1.5px solid #CBD5E1;
+      border-radius: 6px;
+      background: white;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+      width: 180px;
+    }
+
+    .greeting-bar input:focus { border-color: var(--blue); }
+
+    .greeting-bar button {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.45rem 1.1rem;
+      background: var(--black);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .greeting-bar button:hover { background: var(--blue); }
+
+    #greetMsg {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      color: var(--blue);
+      font-weight: 500;
+      margin-top: 0.5rem;
+      min-height: 1.4em;
+    }
+
+    /* ── SECTION SHARED ── */
+    section {
+      padding: 4rem 2.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 1.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--altbg);
+    }
+
+    /* ── ABOUT ── */
+    #about-section {
+      background: var(--altbg);
+      max-width: 100%;
+      padding: 4rem 0;
+    }
+
+    #about-section .inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .about-bio p { 
+      margin-bottom: 1rem; 
+      font-size: 1rem;
+    }
+
+    .skills-list {
+      list-style: none;
+    }
+
+    .skills-list li {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #D1D9F0;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      color: var(--text);
+    }
+
+    .skills-list li::before {
+      content: '→';
+      color: var(--blue);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .currently-learning {
+      margin-top: 1.5rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .currently-learning strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.75rem;
+      border-left: 4px solid var(--altbg);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .card:hover {
+      border-left-color: var(--blue);
+      box-shadow: 0 4px 16px rgba(37,99,235,0.12);
+      transform: translateY(-2px);
+    }
+
+    .card-tag {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+
+    .card h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.3;
+    }
+
+    .card p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.65;
+      flex-grow: 1;
+    }
+
+    .card-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tool-tag {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: var(--altbg);
+      color: var(--blue);
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+    }
+
+    .card-link {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--black);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: color 0.2s;
+      margin-top: 0.25rem;
+    }
+
+    .card-link:hover { color: var(--blue); }
+
+    /* ── CONTACT ── */
+    #contact-section {
+      background: var(--black);
+      max-width: 100%;
+      padding: 4rem 0;
+      color: var(--offwhite);
+    }
+
+    #contact-section .inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+      text-align: center;
+    }
+
+    #contact-section .section-label { color: var(--amber); }
+
+    #contact-section .section-title {
+      color: var(--offwhite);
+      border-bottom-color: #2a2a3e;
+    }
+
+    #contact-section p {
+      color: #9CA3AF;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-buttons a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.65rem 1.75rem;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      letter-spacing: 0.04em;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: white;
+      border: 2px solid var(--blue);
+    }
+
+    .btn-primary:hover {
+      background: white;
+      color: var(--blue);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--offwhite);
+      border: 2px solid #374151;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid #1f1f2e;
+      text-align: center;
+      padding: 1.25rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      color: #4B5563;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 680px) {
+      .hero { flex-direction: column; text-align: center; padding: 3rem 1.5rem; }
+      .hero-text p { margin: 0 auto 1.25rem; }
+      .greeting-bar { justify-content: center; }
+      .about-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      nav { padding: 0 1.25rem; }
+      .navmenu { gap: 1rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo"><a href="#top">OL</a></div>
+    <ul class="navmenu">
+      <li><a href="#about-section">About</a></li>
+      <li><a href="#projects-section">Projects</a></li>
+      <li><a href="#contact-section">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero" id="top">
+    <!-- Replace the div below with: <img src="YOUR_PHOTO.jpg" alt="Olanma Okezie-Okafor" class="hero-img"> -->
+    <div class="hero-img">OL</div>
+
+    <div class="hero-text">
+      <p class="tagline">microbiologist &amp; public health researcher</p>
+      <h1>I am <span>Olanma</span>.</h1>
+      <p>
+        I work at the intersection of public health, data, and biology — 
+        analysing immunisation coverage across Nigerian states, curating 
+        microbiome research for BugSigDB, and applying computational 
+        drug discovery to oncology targets. This is my growing portfolio.
+      </p>
+      <div class="greeting-bar">
+        <input type="text" id="visitorInput" placeholder="What's your name?">
+        <button onclick="greetVisitor()">Say hello</button>
+      </div>
+      <p id="greetMsg"></p>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div id="about-section">
+    <div class="inner">
+      <p class="section-label">Background</p>
+      <h2 class="section-title">About me</h2>
+      <div class="about-grid">
+        <div class="about-bio">
+          <p>
+            I hold a First Class B.Sc. in Microbiology from Nile University of Nigeria, 
+            where I graduated as the best student in my department. My research interests 
+            sit at the intersection of microbiology, computational biology, and public health 
+            — with a long-term goal of building a West African genomics and microbiome 
+            research institute.
+          </p>
+          <p>
+            I recently completed a research fellowship at Sydani Institute for Research and 
+            Innovation, where I led scoping reviews, contributed to GiveWell grant submissions, 
+            and conducted statistical reanalyses in R. I also volunteer as a biocurator for 
+            BugSigDB within the Bioconductor community.
+          </p>
+
+        </div>
+        <div>
+          <ul class="skills-list">
+            <li>R — statistical analysis, ggplot2, Welch's ANOVA</li>
+            <li>Python — data analysis, NumPy, pandas, Jupyter</li>
+            <li>Computational drug discovery — molecular docking, ADMET, DFT</li>
+            <li>Scoping reviews — JBI, PCC, PRISMA-ScR</li>
+            <li>DHIS2 — data quality reconciliation and validation</li>
+            <li>Power BI, Excel — dashboards and visualisation</li>
+            <li>Bioinformatics — bacterial genomics, microbiome curation</li>
+            <li>Scientific &amp; policy writing, manuscript authorship</li>
+          </ul>
+          <p class="currently-learning">
+            <strong>Currently learning:</strong> machine learning with scikit-learn, 
+            medical image analysis, JavaScript
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <section id="projects-section">
+    <p class="section-label">Work</p>
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+
+      <div class="card">
+        <span class="card-tag">Public Health · Statistics</span>
+        <h3>Nigeria Immunisation Coverage Analysis</h3>
+        <p>
+          A statistical analysis of childhood immunisation coverage across Kano, Lagos, 
+          and Anambra states in Nigeria, using R to produce seven data visualisations 
+          and run Welch's ANOVA with Games-Howell post-hoc testing to identify coverage 
+          disparities across states and time.
+        </p>
+        <div class="card-tools">
+          <span class="tool-tag">R</span>
+          <span class="tool-tag">ggplot2</span>
+          <span class="tool-tag">Welch's ANOVA</span>
+          <span class="tool-tag">Games-Howell</span>
+        </div>
+        <a class="card-link" href="https://github.com/olanmaaa/nigeria-immunisation-analysis" target="_blank" rel="noopener noreferrer">
+          View on GitHub ↗
+        </a>
+      </div>
+
+      <div class="card">
+        <span class="card-tag">Epidemiology · Data Analysis</span>
+        <h3>Global Malaria Detection: PCR vs Microscopy</h3>
+        <p>
+          An exploratory analysis of global malaria detection data from The Lancet, 
+          comparing PCR and microscopy diagnostic accuracy across regions including 
+          West Africa, East Africa, Asia, and South America. Built in R with regional 
+          scatter plots and a prevalence ratio boxplot.
+        </p>
+        <div class="card-tools">
+          <span class="tool-tag">R</span>
+          <span class="tool-tag">Base R plots</span>
+          <span class="tool-tag">Epidemiology</span>
+        </div>
+        <a class="card-link" href="https://github.com/olanmaaa" target="_blank" rel="noopener noreferrer">
+          View on GitHub ↗
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <div id="contact-section">
+    <div class="inner">
+      <p class="section-label">Get in touch</p>
+      <h2 class="section-title">Let's connect</h2>
+      <p>
+        I'm open to research collaborations, internship opportunities, 
+        and conversations about public health, microbiome science, and medical AI in Africa.
+      </p>
+      <div class="contact-buttons">
+        <a href="mailto:olanmasolace@gmail.com" class="btn-primary">Email me</a>
+        <a href="https://github.com/olanmaaa" target="_blank" rel="noopener noreferrer" class="btn-outline">GitHub</a>
+        <a href="https://linkedin.com/in/olanmaokezieokafor" target="_blank" rel="noopener noreferrer" class="btn-outline">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© Olanma Okezie-Okafor 2026</p>
+  </footer>
+
+  <script>
+    function greetVisitor() {
+      const name = document.getElementById('visitorInput').value.trim();
+      const msg = document.getElementById('greetMsg');
+      if (name) {
+        msg.textContent = 'Hey ' + name + ', welcome to my portfolio!';
+      } else {
+        msg.textContent = 'Tell me your name first!';
+      }
+    }
+
+    document.getElementById('visitorInput').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') greetVisitor();
+    });
+  </script>
+
+</body>
+</html>
