@@ -337,6 +337,82 @@
 
     .card-link:hover { color: var(--blue); }
 
+    /* ── CERTIFICATES ── */
+    #cert-section {
+      background: var(--altbg);
+      max-width: 100%;
+      padding: 4rem 0;
+    }
+
+    #cert-section .inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .cert-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.4rem 1.5rem;
+      border-left: 4px solid var(--altbg);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      transition: border-color 0.25s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .cert-card:hover {
+      border-left-color: var(--blue);
+      box-shadow: 0 4px 16px rgba(37,99,235,0.10);
+    }
+
+    .cert-issuer {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+
+    .cert-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.3;
+    }
+
+    .cert-meta {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .cert-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.25rem;
+    }
+
+    .cert-skill {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: var(--altbg);
+      color: var(--blue);
+      padding: 0.15rem 0.5rem;
+      border-radius: 20px;
+    }
+
     /* ── CONTACT ── */
     #contact-section {
       background: var(--black);
@@ -440,6 +516,7 @@
     <ul class="navmenu">
       <li><a href="#about-section">About</a></li>
       <li><a href="#projects-section">Projects</a></li>
+      <li><a href="#cert-section">Certificates</a></li>
       <li><a href="#contact-section">Contact</a></li>
     </ul>
   </nav>
@@ -576,6 +653,83 @@
 
     </div>
   </section>
+
+  <!-- CERTIFICATES -->
+  <div id="cert-section">
+    <div class="inner">
+      <p class="section-label">Training &amp; Credentials</p>
+      <h2 class="section-title">Certificates</h2>
+      <div class="cert-grid">
+
+        <div class="cert-card">
+          <span class="cert-issuer">FutureGRIN NextGen</span>
+          <p class="cert-title">Computer-Aided Drug Discovery (CADD)</p>
+          <p class="cert-meta">Issued Nov 2025 &nbsp;·&nbsp; Credential ID 36D4447B</p>
+          <div class="cert-skills">
+            <span class="cert-skill">Drug Design</span>
+            <span class="cert-skill">Maestro</span>
+            <span class="cert-skill">Molecular Docking</span>
+            <span class="cert-skill">ADMET</span>
+            <span class="cert-skill">DFT</span>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <span class="cert-issuer">BioinformHER</span>
+          <p class="cert-title">R Programming for Data Analysis</p>
+          <p class="cert-meta">Issued Oct 2025</p>
+          <div class="cert-skills">
+            <span class="cert-skill">RStudio</span>
+            <span class="cert-skill">Data Manipulation</span>
+            <span class="cert-skill">Visualisation</span>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <span class="cert-issuer">Helix Biogen Institute</span>
+          <p class="cert-title">Molecular Biology &amp; Bioinformatics</p>
+          <p class="cert-meta">Sep 2025 &nbsp;·&nbsp; 3-day training (theory + hands-on)</p>
+          <div class="cert-skills">
+            <span class="cert-skill">Molecular Biology</span>
+            <span class="cert-skill">Bioinformatics</span>
+            <span class="cert-skill">PCR</span>
+            <span class="cert-skill">Primer Design</span>
+            <span class="cert-skill">Gel Electrophoresis</span>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <span class="cert-issuer">University of Cape Town · Coursera</span>
+          <p class="cert-title">Introduction to Small Molecule Drug Discovery &amp; Development</p>
+          <p class="cert-meta">Issued Jun 2025 &nbsp;·&nbsp; Completed with Honors</p>
+          <div class="cert-skills">
+            <span class="cert-skill">Drug Discovery</span>
+            <span class="cert-skill">Small Molecules</span>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <span class="cert-issuer">Helix Biogen Institute</span>
+          <p class="cert-title">Bacterial Bioinformatics</p>
+          <p class="cert-meta">Issued Nov 2024</p>
+          <div class="cert-skills">
+            <span class="cert-skill">Bioinformatics</span>
+            <span class="cert-skill">Bacterial Bioinformatics</span>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <span class="cert-issuer">Helix Biogen Institute</span>
+          <p class="cert-title">Basic Bioinformatics</p>
+          <p class="cert-meta">Aug 2024</p>
+          <div class="cert-skills">
+            <span class="cert-skill">Bioinformatics</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
   <!-- CONTACT -->
   <div id="contact-section">
